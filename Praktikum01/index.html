@@ -32,7 +32,6 @@
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="modal" data-bs-target="#aboutmodal">About</a>
                 </li>
-                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -124,59 +123,67 @@
 
 </div>
 
-
-<!--
-<div class="container-fluid px-0 container-safe">
-    <div class="row">
-        <div class="col-8">
-            <img src="img/books.jpg" class="img-fluid w-100" alt="Responsive image">
-        </div>
-        <div class="col-4 v-center">
-            <div class="h-center text-center">
-                <h1 class="h-center">
-                The
-                </h1>
-                <h1 class="h-center">
-                    Book
-                </h1>
-                <h1 class="h-center">
-                    Paradise
-                </h1>
-            </div>
-        </div>
-    </div>
-</div>
-
--->
-
-
-
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-        let lineNo = 1;
-        $(document).ready(function () {
-            $("#add-book").click(function () {
-                var autor = $("#book-autor").val();
-                var titel = $("#book-titel").val();
-                var erscheinungsjahr = $("#book-erscheinungsjahr").val();
-                var seiten = $("#book-seiten").val();
-                var verlag = $("#book-verlag").val();
-                markup = "<tr><td>" + lineNo + "</td><td>"+ autor +"</td><td>"+ titel +"</td><td>"+ erscheinungsjahr +"</td><td>"+ seiten +"</td><td>"+ verlag +"</td></tr>";
-                tableBody = $("#table1 tbody");
-                tableBody.append(markup);
-                lineNo++;
-                $('#book-autor').val('');
-                $('#book-titel').val('');
-                $('#book-erscheinungsjahr').val('');
-                $('#book-verlag').val('');
-                $('#book-seiten').val('');
-            });
-        }); 
+
+
+    $(document).ready(function () {
+        let ls = window.localStorage;
+        let tmpArr = JSON.parse(ls.getItem("booksArr") || "[]");
+        let lineNo = tmpArr.length + 1;
+
+
+        function getBooks() {
+
+            if (ls.getItem("booksArr") !== null) {
+                let booksArr = JSON.parse(ls.getItem("booksArr"));
+                booksArr.forEach((element => {
+                    markup = "<tr><td>" + element.id + "</td><td>" + element.autor + "</td><td>" + element.titel + "</td><td>" + element.erscheinungsjahr + "</td><td>" + element.seiten + "</td><td>" + element.verlag + "</td></tr>";
+                    tableBody = $("#table1 tbody");
+                    tableBody.append(markup);
+                }))
+            }
+        }
+
+
+        function localStorageBooks(object) {
+            let booksArr = JSON.parse(ls.getItem("booksArr") || "[]");
+            booksArr.push(object);
+            ls.setItem("booksArr", JSON.stringify(booksArr));
+        }
+
+        getBooks();
+        $("#add-book").click(function () {
+            var autor = $("#book-autor").val();
+            var titel = $("#book-titel").val();
+            var erscheinungsjahr = $("#book-erscheinungsjahr").val();
+            var seiten = $("#book-seiten").val();
+            var verlag = $("#book-verlag").val();
+
+            markup = "<tr><td>" + lineNo + "</td><td>" + autor + "</td><td>" + titel + "</td><td>" + erscheinungsjahr + "</td><td>" + seiten + "</td><td>" + verlag + "</td></tr>";
+            tableBody = $("#table1 tbody");
+            tableBody.append(markup);
+
+            const book = {
+                id: lineNo,
+                autor: autor,
+                titel: titel,
+                erscheinungsjahr: erscheinungsjahr,
+                seiten: seiten,
+                verlag: verlag
+            };
+            localStorageBooks(book);
+            lineNo++;
+
+            $('#book-autor').val('');
+            $('#book-titel').val('');
+            $('#book-erscheinungsjahr').val('');
+            $('#book-verlag').val('');
+            $('#book-seiten').val('');
+        });
+    });
 </script>
 </body>
 </html>
