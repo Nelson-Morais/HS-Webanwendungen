@@ -1,53 +1,48 @@
-<table class="table table-hover" id="table1">
-  <thead>
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">Autor</th>
-    <th scope="col">Titel</th>
-    <th scope="col">Erscheinungsjahr</th>
-    <th scope="col">Seiten</th>
-    <th scope="col">Verlag</th>
 
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let book of books">
-    <th scope="row">{{book.id}} </th>
-    <td> {{book.autor}}</td>
-    <td> {{book.title}}</td>
-    <td> {{book.year}} </td>
-    <td> {{book.pages}} </td>
-    <td> {{book.publisher}} </td>
-  </tbody>
-</table>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/welcome" routerLinkActive="active">SK</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/welcome' routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Books" routerLinkActive="active">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#aboutmodal">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#addbookmodal">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<div id="formContainer">
-<form id="inputForm">
-  <div class="form-group">
-    <label for="formInputID">ID</label>
-    <input type="text" class="form-control" id="formInputID" [(ngModel)]="id">
-  </div>
-  <div class="form-group">
-    <label for="formInputAutor">Autor</label>
-    <input type="text" class="form-control" id="formInputAutor" [ngModel]="autor">
-  </div>
-  <div class="form-group">
-    <label for="formInputTitel">Titel</label>
-    <input type="text" class="form-control" id="formInputTitel" [ngModel]="title">
-  </div>
-  <div class="form-group">
-    <label for="formInputJahr">Jahr</label>
-    <input type="number" class="form-control" id="formInputJahr" [ngModel]="year">
-  </div>
-  <div class="form-group">
-    <label for="formInputSeiten">Seiten</label>
-    <input type="text" class="form-control" id="formInputSeiten" [ngModel]="pages">
-  </div>
-  <div class="form-group">
-    <label for="formInputVerlag">Verlag</label>
-    <input type="text" class="form-control" id="formInputVerlag" [ngModel]="publisher">
-  </div>
-</form>
 
-  <button type="button" class="btn btn-primary" (click)="addBook()">Add book</button>
+<div class="modal fade" id="aboutmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">About</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>A MASTERPIECE</h1>
+        <p>made by Nelson Morais</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
+<router-outlet></router-outlet>
+

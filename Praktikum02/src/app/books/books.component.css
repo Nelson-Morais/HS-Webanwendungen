@@ -1,0 +1,16 @@
+.table{
+  margin-bottom: 300px;
+}
+
+#inputForm{
+  padding: 20px;
+}
+
+#formContainer{
+  max-width: 300px;
+  margin-left: 50px;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #565656;
+
+}

@@ -1,0 +1,25 @@
+<table class="table table-hover" id="table1">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Autor</th>
+    <th scope="col">Title</th>
+    <th scope="col">Year</th>
+    <th scope="col">Pages</th>
+    <th scope="col">Publisher</th>
+    <th scope="col">Actions</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of getBooks()">
+    <th scope="row">{{book.id}} </th>
+    <td> {{book.autor}}</td>
+    <td> {{book.title}}</td>
+    <td> {{book.year}} </td>
+    <td> {{book.pages}} </td>
+    <td> {{book.publisher}} </td>
+  </tbody>
+</table>
+
+
