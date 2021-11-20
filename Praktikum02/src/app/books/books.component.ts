@@ -20,19 +20,23 @@ export class BooksComponent {
   constructor(private bookService :BooksDataService) {
   }
 
-  public addBook(){
-    this.bookService.addBook(new Book(this.id,this.autor,this.title,this.year,this.pages,this.publisher));
 
-  }
 
   public removeBook(id:number){
+
     this.bookService.removeBook(id);
+
   }
 
 
-  public getBooks() : Book[]{
+  public getBooksFromService() : Book[]{
     return this.bookService.getBooks();
 
+  }
+
+  public deleteList(){
+    this.bookService.removeBooksFromMemory();
+    location.reload()
   }
 
 

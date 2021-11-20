@@ -12,14 +12,19 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let book of getBooks()">
+  <tr *ngFor="let book of getBooksFromService()">
     <th scope="row">{{book.id}} </th>
     <td> {{book.autor}}</td>
     <td> {{book.title}}</td>
     <td> {{book.year}} </td>
     <td> {{book.pages}} </td>
     <td> {{book.publisher}} </td>
+    <td> <button type="button" class="btn-sm btn-dark" id="deleteBook" (click)="removeBook(book.id)">Delete</button></td>
+  </tr>
   </tbody>
 </table>
+
+
+<button type="button" class="btn btn-dark deleteMemory" (click)="deleteList()">Delete List</button>
 
 

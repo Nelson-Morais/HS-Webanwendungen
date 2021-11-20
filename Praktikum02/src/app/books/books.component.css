@@ -1,5 +1,5 @@
 .table{
-  margin-bottom: 300px;
+  margin-bottom: 30px;
 }
 
 #inputForm{
@@ -14,3 +14,9 @@
   outline-color: #565656;
 
 }
+
+.deleteMemory{
+  margin-left: 5px;
+
+}
+

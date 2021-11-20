@@ -1,0 +1,19 @@
+
+.btn:focus, .btn:active:focus, .btn.active:focus{
+  outline:none;
+  box-shadow:none;
+}
+
+.btn-close{
+  outline:none;
+  box-shadow:none;
+  color: black !important;
+  opacity: 1;
+  margin: fill;
+}
+
+.navlink:active {
+
+  color: #a8a8a6;
+
+}

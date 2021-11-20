@@ -1,29 +1,29 @@
-<!-- Modals -->
-<div class="modal fade" id="addbookmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addbooklabel">Add Books to the DB</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <label for="fname">Autor:</label><br>
-          <input type="text" id="book-autor" class="form-control"><br>
-          <label for="fname">Titel:</label><br>
-          <input type="text" id="book-titel" class="form-control"><br>
-          <label for="fname">Erscheinungsjahr:</label><br>
-          <input type="text" id="book-erscheinungsjahr" class="form-control"><br>
-          <label for="fname">Seiten:</label><br>
-          <input type="text" id="book-seiten" class="form-control"><br>
-          <label for="fname">Verlag:</label><br>
-          <input type="text" id="book-verlag" class="form-control"><br>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="add-book">Add Book</button>
-      </div>
-    </div>
+
+
+<button class="btn nav-link" id="addBooksButton "(click)="triggerModal(modalData)">Add Books</button>
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Angular Bootstrap Modal Popup</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    </button>
   </div>
-</div>
+  <div class="modal-body">
+
+      <label for="fname">Autor:</label><br>
+      <input type="text" id="book-autor" class="form-control" [(ngModel)]="autor"><br>
+      <label for="fname">Titel:</label><br>
+      <input type="text" id="book-title" class="form-control" [(ngModel)]="title"><br>
+      <label for="fname">Year:</label><br>
+      <input type="text" id="book-year" class="form-control" [(ngModel)]="year"><br>
+      <label for="fname">Pages:</label><br>
+      <input type="text" id="book-pages" class="form-control" [(ngModel)]="pages"><br>
+      <label for="fname">Publisher:</label><br>
+      <input type="text" id="book-publisher" class="form-control" [(ngModel)]="publisher"><br>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Close</button>
+    <button type="button" class="btn btn-dark" id="add-book" (click)="addBook(autor, title, year, pages, publisher)">Add Book</button>
+  </div>
+</ng-template>
