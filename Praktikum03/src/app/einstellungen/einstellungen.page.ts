@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {StorageService} from '../services/storage.service';
+import { AufgabenService } from '../services/aufgaben.service';
 
 @Component({
   selector: 'app-einstellungen',
@@ -8,14 +8,13 @@ import {StorageService} from '../services/storage.service';
 })
 export class EinstellungenPage implements OnInit {
 
-  constructor(private storageService: StorageService) { }
+  constructor(private aufgabenService: AufgabenService) { }
 
   ngOnInit() {
   }
 
   public deleteFromMemory(){
-    this.storageService.clearLocalStorage();
-    window.location.reload()
+    this.aufgabenService.clearData();
 
 
   }

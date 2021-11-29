@@ -44,8 +44,13 @@ export class AufgabenService {
         this.aufgaben.splice(index,1);
         this.putAufgabenInMemory();
       }
-      }
+    }
 
+    clearData()
+    {
+      this.aufgaben.splice(0);
+      this.putAufgabenInMemory();
+    }
 
 
   private getAufgabenFromMemory(){
