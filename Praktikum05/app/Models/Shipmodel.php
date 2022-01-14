@@ -13,4 +13,9 @@ class Shipmodel extends Model
     {
         return $this->ships()->orderBy('name', 'desc')->get();
     }
+
+    public function getHersteller()
+    {
+        return $this->belongsTo(Hersteller::class);
+    }
 }

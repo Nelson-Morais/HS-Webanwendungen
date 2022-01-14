@@ -15,7 +15,7 @@ class CreateShipmodelsTable extends Migration
     {
         Schema::create('shipmodels', function (Blueprint $table) {
             $table->id();
-            $table->integer('manufacturer_id')->nullable()->unsigned();
+            $table->integer('hersteller_id')->nullable()->unsigned();
             $table->string('name')->default('');
             $table->timestamps();
         });
@@ -23,9 +23,7 @@ class CreateShipmodelsTable extends Migration
         Schema::table('ships', function (Blueprint $table) {
             $table->integer('shipmodel_id')->nullable()->unsigned()->after('id');
         });
-        // Shipmodel
-        // shipmodels
-        // shipmodel_id
+
     }
 
     /**

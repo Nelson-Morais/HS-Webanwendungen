@@ -10,6 +10,16 @@
             <br/>
             {!! Form::text('brt', null, ['class'=>'form-control', 'placeholder'=>'BRT...']) !!}
             <br/>
+            {!! Form::text('length', null, ['class'=>'form-control', 'placeholder'=>'length...']) !!}
+            <br/>
+            {!! Form::text('width', null, ['class'=>'form-control', 'placeholder'=>'width...']) !!}
+            <br/>
+            {!! Form::text('weight', null, ['class'=>'form-control', 'placeholder'=>'weight...']) !!}
+            <br/>
+            {!! Form::text('power', null, ['class'=>'form-control', 'placeholder'=>'power...']) !!}
+            <br/>
+            {!! Form::text('motor', null, ['class'=>'form-control', 'placeholder'=>'motor...']) !!}
+            <br/>
             {!! Form::submit('Speichern', ['class'=>'btn btn-success']) !!}
             <a href="{{url('ships')}}" class="btn btn-danger">Abbrechen</a>
 

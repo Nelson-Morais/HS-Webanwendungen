@@ -8,6 +8,11 @@
                 <tr>
                     <th>Name</th>
                     <th>BRT</th>
+                    <th>Length</th>
+                    <th>Width</th>
+                    <th>Weight</th>
+                    <th>Power</th>
+                    <th>Motor</th>
                     <th>Modell</th>
                     <th>Bearbeiten</th>
                 </tr>
@@ -17,13 +22,18 @@
                     <tr>
                         <td>{{ $ship->name}}</td>
                         <td>{{ $ship->brt}}</td>
+                        <td>{{ $ship->length}}</td>
+                        <td>{{ $ship->width}}</td>
+                        <td>{{ $ship->weight}}</td>
+                        <td>{{ $ship->power}}</td>
+                        <td>{{ $ship->motor}}</td>
                         <td>@if($ship->shipmodel) {{ $ship->shipmodel->name }} @else Kein Modell @endif</td>
                         <td>
                             <a href="{{url('ships/show/'.$ship->id)}}" class="btn btn-success">Show</a>
                             <a href="{{url('ships/edit/'.$ship->id)}}" class="btn btn-success">Edit</a>
                             <a href="{{url('ships/delete/'.$ship->id)}}" class="btn btn-danger">Del</a>
                         </td>
-                    </tr>   
+                    </tr>
                 @endforeach
             </tbody>
             <tfoot>
@@ -31,11 +41,16 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>
                         <a href="{{url('ships/add')}}" class="btn btn-success">Add</a>
                     </td>
-                </tr>   
+                </tr>
             </tfoot>
         </table>
         {{ $entities->links() }}
-@endsection 
+@endsection
